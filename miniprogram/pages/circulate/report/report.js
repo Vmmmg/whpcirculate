@@ -5,8 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    chemicalId: '',
-    chemicalName: '',
     status: ['生产', '储存', '运输', '经营', '使用', '废弃'],
     statusSelected: 0,
     position: {
@@ -18,11 +16,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.setData({
-      chemicalId: options.chemicalId,
-      chemicalName: options.chemicalName
-    })
+  onLoad: function () {
+
   },
 
   /**
@@ -128,7 +123,6 @@ Page({
       })
     }
     else {
-      circularData.chemicalId = this.data.chemicalId
       wx.showToast({
         title: '提交成功',
       })
