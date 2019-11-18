@@ -1,1 +1,39 @@
-/* pages/circulate/search/search.wxss */
+#searchView{
+  margin-top: 40%;
+  margin-left: 5%;
+  width: 90%;
+  height: 80rpx;
+  display: flex;
+  border:2rpx solid #333333;
+  border-radius: 8rpx;
+  padding-left: 5rpx;
+  padding-right: 0;
+  line-height: 80rpx;
+}
+
+#searchInput{
+  width: 55%;
+  border-left: 2rpx solid #333333;
+  padding-left: 10rpx; 
+}
+
+#searchButton{
+  width: auto;
+  height: auto;
+  background-color: #476AF6;
+  color: white;
+  margin-right: 0;
+  padding-top: 5rpx;
+}
+
+#searchTag{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.searchItem{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 0;
+  font-size: 32rpx;
+}

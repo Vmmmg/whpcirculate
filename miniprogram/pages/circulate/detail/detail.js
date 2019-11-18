@@ -1,18 +1,42 @@
 // pages/circulate/detail/detail.js
 Page({
+  getData: function (number) {
+    const db = wx.cloud.database()
+    db.collection("circulate").where({
+      number: number
+    }).get({
+      success: res => {
+        this.setData({
+          items: res.data
+        })
+        console.log(this.data.items)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询失败'
+        })
+      }
+    })
+  },
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    number: "",
+    items: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      number: options.number
+    })
+    console.log(this.data.number)
+    this.getData(options.number)
   },
 
   /**

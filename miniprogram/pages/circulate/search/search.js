@@ -1,11 +1,22 @@
 // pages/circulate/search/search.js
 Page({
+  turn: function(e){
+    wx.navigateTo({
+      url: '/pages/circulate/detail/detail?number=' + this.data.number,
+    })
+  },
+
+  input: function(e){
+    this.setData({
+      number: e.detail.value
+    })
+  },
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    number: ""
   },
 
   /**
