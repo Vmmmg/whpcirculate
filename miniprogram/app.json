@@ -33,13 +33,13 @@
       {
         "pagePath": "pages/circulate/search/search",
         "iconPath": "images/search.png",
-        "selectedIconPath": "images/search.png",
+        "selectedIconPath": "images/search_hl.png",
         "text": "查询"
       },
       {
         "pagePath": "pages/circulate/report/report",
         "iconPath": "images/report.png",
-        "selectedIconPath": "images/report.png",
+        "selectedIconPath": "images/report_hl.png",
         "text": "上报"
       }
     ]

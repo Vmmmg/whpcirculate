@@ -6,7 +6,7 @@
 <view id="infoView">
   <view class="infoItem">
     <view class="itemName">产品批号：</view>
-    <input placeholder="请输入内容" name="bn"></input>
+    <input placeholder="请输入内容" name="number"></input>
   </view>
   <view class="infoItem">
     <view class="itemName">化学品名称：</view>
@@ -23,7 +23,7 @@
   </view>
   <view class="infoItem">
     <view class="itemName">状态选择：</view>
-    <picker bindchange="statusChange" name="state" value="{{statusSelected}}" range="{{status}}">
+    <picker bindchange="statusChange" name="state" value="{{status[statusSelected]}}" range="{{status}}">
       {{status[statusSelected]}}
       <view class="iconfont icon-arrow-down right"></view>
     </picker>

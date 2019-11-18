@@ -123,8 +123,22 @@ Page({
       })
     }
     else {
-      wx.showToast({
-        title: '提交成功',
+      const db = wx.cloud.database()
+      db.collection('circulate').add({
+        data: circularData,
+        success: res => {
+          wx.showToast({
+            title: '上传成功',
+          })
+          console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '上传失败'
+          })
+          console.error('[数据库] [新增记录] 失败：', err)
+        }
       })
     }
   }
