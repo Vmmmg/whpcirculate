@@ -1,1 +1,63 @@
 /* pages/circulate/detail/detail.wxss */
+#head{
+  display: inline-flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#headText{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#infoView{
+  width: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px solid black;
+  padding: 5%;
+  margin-bottom: 30rpx;
+}
+
+.infoItem{
+  display: inline-flex;
+  width: 100%;
+  margin-bottom: 5%;
+  font-size: 32rpx;
+}
+
+.itemName{
+  width: 32%;
+  display: flex;
+  align-items: center;
+}
+
+button{
+  min-height: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #476AF6;
+  color: white;
+}
+
+button:not([size='mini']){
+  min-height: 0;
+}
+
+.mapButton{
+  width: 5%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+.right{
+  display: inline;
+  float: right;
+}

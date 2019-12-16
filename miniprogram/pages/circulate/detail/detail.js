@@ -6,6 +6,17 @@ Page({
       number: number
     }).get({
       success: res => {
+        let dataList = res.data; 
+        var posStr;
+        var posSet=[];
+        dataList.forEach((item) => {
+          posSet[0] = item.position;
+          posStr=item.position.split(",");
+          posSet[1] = posStr[0].substring(0,6);
+          posSet[2] = posStr[1].substring(0, 6);
+          item.position = posSet;
+        })
+        // console.log(posSet);
         this.setData({
           items: res.data
         })
@@ -27,7 +38,17 @@ Page({
     number: "",
     items: []
   },
-
+  locate: function (e) {
+    // console.log(e);
+    var posStr = e.currentTarget.id;
+    posStr = posStr.split(",");
+    const latitude = parseFloat(posStr[1]);
+    const longitude = parseFloat(posStr[0]);
+    wx.openLocation({
+      latitude,
+      longitude
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

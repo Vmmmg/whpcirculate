@@ -1,1 +1,42 @@
 <!--pages/circulate/detail/detail.wxml-->
+<view id="head">
+  <view id="headText">当前化学品流转信息</view>
+</view>
+<scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+<view wx:for = "{{items}}"wx:key="">
+<form bindsubmit="circulateSubmit">
+<view id="infoView">
+ <view class="infoItem">
+    <view class="itemName">日期：</view>
+    <view class="itemName">{{item.date}}</view>
+  </view> 
+  <view class="infoItem">
+    <view class="itemName">化学品名称：</view>
+    <view class="itemName">{{item.name}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">化学品重量：</view>
+    <view >{{item.weight}}</view>
+    <view style="margin-left: 1em;">kg</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">企业名称：</view>
+    <view class="itemName">{{item.enterprise}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">状态:</view>
+    <view class="itemName">{{item.state}}</view>
+  </view>
+  <view class="infoItem">
+    <view class="itemName">位置:</view>
+    <view class="itemName">{{item.position[1]}},{{item.position[2]}}</view>
+    <button style="width:25%;"id='{{item.position[0]}}' bindtap="locate">地图</button>
+  </view>
+  <view class="infoItem" style="margin-bottom: 0;">
+    <view class="itemName">备注信息：</view>
+    <view class="itemName">{{item.remarks}}</view>
+  </view>
+</view>
+</form>
+</view>
+</scroll-view>
