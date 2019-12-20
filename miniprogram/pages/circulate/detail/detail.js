@@ -6,27 +6,27 @@ Page({
       number: number
     }).get({
       success: res => {
-        let dataList = res.data; 
-        var posStr;
-        var posSet=[];
-        dataList.forEach((item) => {
-          posSet[0] = item.position;
-          posStr=item.position.split(",");
-          posSet[1] = posStr[0].substring(0,6);
-          posSet[2] = posStr[1].substring(0, 6);
-          item.position = posSet;
-        })
-        // console.log(posSet);
-        this.setData({
-          items: res.data
-        })
+        let dataList = res.data;
+          var posStr;
+          var posSet = [];
+          dataList.forEach((item) => {
+            posSet[0] = item.position;
+            posStr = item.position.split(",");
+            posSet[1] = posStr[0].substring(0, 6);
+            posSet[2] = posStr[1].substring(0, 6);
+            item.position = posSet;
+          })
+          // console.log(posSet);
+          this.setData({
+            items: res.data
+          })
         console.log(this.data.items)
       },
       fail: err => {
         wx.showToast({
           icon: 'none',
           title: '查询失败'
-        })
+        }) 
       }
     })
   },
@@ -39,7 +39,6 @@ Page({
     items: []
   },
   locate: function (e) {
-    // console.log(e);
     var posStr = e.currentTarget.id;
     posStr = posStr.split(",");
     const latitude = parseFloat(posStr[1]);
@@ -58,6 +57,7 @@ Page({
     })
     console.log(this.data.number)
     this.getData(options.number)
+    
   },
 
   /**

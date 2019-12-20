@@ -2,9 +2,12 @@
 <view id="head">
   <view id="headText">当前化学品流转信息</view>
 </view>
+<view id="searchView" wx:if="{{items.length<=0}}">
+     <view class="searchItem">您搜索的产品不存在!</view>
+</view>
 <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
-<view wx:for = "{{items}}"wx:key="">
-<form bindsubmit="circulateSubmit">
+<view wx:for = "{{items}}" wx:key="">
+<form>
 <view id="infoView">
  <view class="infoItem">
     <view class="itemName">日期：</view>

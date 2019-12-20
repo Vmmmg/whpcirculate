@@ -11,7 +11,25 @@
   justify-content: center;
   width: 100%;
 }
-
+#searchView{
+  margin-top: 30%;
+  margin-left: 15%;
+  width: 90%;
+  height: 80rpx;
+  display: flex;
+  border-radius: 8rpx;
+  padding-left: 5rpx;
+  padding-right: 0;
+  line-height: 80rpx;
+  color: red;
+  font-size: 20px;
+}
+.view_hide{
+ display: none;
+}
+.view_show{
+ display: block;
+}
 #infoView{
   width: 80%;
   margin-left: 5%;
