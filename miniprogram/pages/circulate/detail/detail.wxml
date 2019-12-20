@@ -10,12 +10,12 @@
 <form>
 <view id="infoView">
  <view class="infoItem">
-    <view class="itemName">日期：</view>
-    <view class="itemName">{{item.date}}</view>
+    <view class="itemName">上报时间：</view>
+    <view class="itemName" style="width: 65%;">{{item.time}}</view>
   </view> 
   <view class="infoItem">
     <view class="itemName">化学品名称：</view>
-    <view class="itemName">{{item.name}}</view>
+    <view class="itemName" style="width: 65%;">{{item.name}}</view>
   </view>
   <view class="infoItem">
     <view class="itemName">化学品重量：</view>
@@ -24,7 +24,7 @@
   </view>
   <view class="infoItem">
     <view class="itemName">企业名称：</view>
-    <view class="itemName">{{item.enterprise}}</view>
+    <view class="itemName" style="width: 65%;">{{item.enterprise}}</view>
   </view>
   <view class="infoItem">
     <view class="itemName">状态:</view>
@@ -37,7 +37,7 @@
   </view>
   <view class="infoItem" style="margin-bottom: 0;">
     <view class="itemName">备注信息：</view>
-    <view class="itemName">{{item.remarks}}</view>
+    <view class="itemName"style="width: 65%;">{{item.remarks}}</view>
   </view>
 </view>
 </form>

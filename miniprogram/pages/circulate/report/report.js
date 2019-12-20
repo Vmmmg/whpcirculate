@@ -1,4 +1,5 @@
 // pages/circulate/report/report.js
+var utils = require("../../utils/utils.js")
 Page({
 
   /**
@@ -10,7 +11,8 @@ Page({
     position: {
       longitude: '',
       latitude: ''
-    }
+    },
+    form_info: ''
   },
 
   /**
@@ -123,12 +125,23 @@ Page({
       })
     }
     else {
+      var time = utils.formatTime(new Date());
+      circularData.time = time;
       const db = wx.cloud.database()
+      var that = this
       db.collection('circulate').add({
         data: circularData,
         success: res => {
           wx.showToast({
             title: '上传成功',
+          })
+          that.setData({
+            statusSelected: 0,
+            position: {
+              longitude: '',
+              latitude: ''
+            },
+            form_info: ''
           })
           console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
         },
