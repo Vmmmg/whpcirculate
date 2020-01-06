@@ -1,8 +1,11 @@
 <view id="head">
   <view id="headText">搜索产品</view>
 </view>
-  <view id="searchView">
-     <view class="searchItem" id="searchTag">产品批号</view>
-    <input class="searchItem" id="searchInput" placeholder="请输入产品批号" bindinput="input"></input>
-    <button class="searchItem" id="searchButton" bindtap="turn">搜索</button>
-  </view>
+<view id="searchView">
+  <view class="searchItem" id="searchTag">产品批号</view>
+  <input class="searchItem" id="searchInput" placeholder="请输入产品批号" bindinput="input"></input>
+  <button class="searchItem" id="searchButton" bindtap="turn">搜索</button>
+</view>
+<view>
+  <button class="scan" bindtap='scanCode'>扫描二维码</button>
+</view>

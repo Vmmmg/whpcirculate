@@ -37,3 +37,8 @@
   border-radius: 0;
   font-size: 32rpx;
 }
+
+.scan{
+  margin: 100rpx;
+  background-color: azure;
+}

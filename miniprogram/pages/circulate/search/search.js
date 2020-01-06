@@ -12,6 +12,31 @@ Page({
     })
   },
 
+  scanCode: function(e){
+    wx.scanCode({
+      success(res) {
+        var json = JSON.parse(res.result);
+        var number = json.number;
+        console.log(number);
+        wx.showToast({
+          title: '扫描成功，正在跳转...',
+          icon: 'success',
+          duration: 2000
+        });
+        wx.navigateTo({
+          url: '/pages/circulate/detail/detail?number=' + number,
+        })
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '扫描失败',
+          icon: 'none',
+          duration: 2000
+        });
+      }
+    })
+  },
+
   /**
    * 页面的初始数据
    */
