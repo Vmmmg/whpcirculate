@@ -1,0 +1,3 @@
+<!--pages/circulate/result/result.wxml-->
+<text>{{result}}</text>
+<canvas class='canvas' canvas-id='canvas' bindlongtap="saveQrCode"></canvas>

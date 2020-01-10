@@ -2,24 +2,35 @@
 <view id="head">
   <view id="headText">上报流转信息</view>
 </view>
+<view id="scanView">
+  <button id="scanButton" bindtap="scanCode">
+    <image src="../../../images/scan.png" mode="scaleToFill" style="width: 30rpx; height: 30rpx; margin-right: 10rpx"></image>
+    扫一扫
+  </button>
+</view>
 <form bindsubmit="circulateSubmit">
 <view id="infoView">
   <view class="infoItem">
     <view class="itemName">产品批号：</view>
-    <input placeholder="请输入内容" name="number" value="{{form_info}}"></input>
+    <input placeholder="请输入内容" name="number" value="{{number}}"></input>
   </view>
   <view class="infoItem">
     <view class="itemName">化学品名称：</view>
-    <input placeholder="请输入内容" name="name" value="{{form_info}}"></input>
+    <input placeholder="请输入内容" name="name" value="{{name}}"></input>
   </view>
   <view class="infoItem">
-    <view class="itemName">化学品重量：</view>
-    <input type="number" name="weight" style="width: 20%;" value="{{form_info}}"></input>
-    <view class="itemName" style="margin-left: 1em;">kg</view>
+    <view class="itemName">化学品形态：</view>
+    <picker bindchange="formChange" name="form" value="{{form[formSelected]}}" range="{{form}}">
+      {{form[formSelected]}}
+      <view class="iconfont icon-arrow-down right"></view>
+    </picker>
   </view>
   <view class="infoItem">
     <view class="itemName">企业名称：</view>
-    <input placeholder="请输入内容" name="enterprise" value="{{form_info}}"></input>
+    <picker bindchange="enterpriseChange" name="enterprise" value="{{enterprise[enterpriseSelected].name}}" range="{{enterprise}}" range-key="name">
+      {{enterprise[enterpriseSelected].name}}
+      <view class="iconfont icon-arrow-down right"></view>
+    </picker>
   </view>
   <view class="infoItem">
     <view class="itemName">状态选择：</view>
@@ -36,7 +47,7 @@
   </view>
   <view class="infoItem" style="margin-bottom: 0;">
     <view class="itemName">备注信息：</view>
-    <textarea placeholder="请输入内容" style="height: 3em;" name="remarks" value="{{form_info}}"></textarea> 
+    <textarea placeholder="请输入内容" style="height: 3em;" name="remarks"></textarea> 
   </view>
 </view>
 <view>

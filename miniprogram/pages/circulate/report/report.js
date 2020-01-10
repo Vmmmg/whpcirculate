@@ -8,18 +8,23 @@ Page({
   data: {
     status: ['生产', '储存', '运输', '经营', '使用', '废弃'],
     statusSelected: 0,
+    form: ['气态', '液态', '固态'],
+    formSelected: 0,
+    enterprise: [],
+    enterpriseSelected: 0,
     position: {
       longitude: '',
       latitude: ''
     },
-    form_info: ''
+    number: '',
+    name: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-
+    this.getEnterpriseList();
   },
 
   /**
@@ -71,9 +76,33 @@ Page({
 
   },
 
+  getEnterpriseList: function () {
+    var that = this;
+    const db = wx.cloud.database()
+    db.collection('test').get({
+      success: function (res) {
+        that.setData({
+          enterprise: res.data
+        })
+      }
+    })
+  },
+
   statusChange: function (e) {
     this.setData({
       statusSelected: e.detail.value
+    })
+  },
+
+  formChange: function (e) {
+    this.setData({
+      formSelected: e.detail.value
+    })
+  },
+
+  enterpriseChange: function (e) {
+    this.setData({
+      enterpriseSelected: e.detail.value
     })
   },
 
@@ -88,6 +117,55 @@ Page({
           },
         })
       },
+    })
+  },
+
+  scanCode: function (e) {
+    var that = this;
+    const db = wx.cloud.database();
+    wx.scanCode({
+      success: (res) => {
+        var number = res.result;
+        wx.showToast({
+          title: '扫描成功',
+          icon: 'success',
+          duration: 2000
+        })
+        console.log(number);
+        db.collection("circulate").where({
+          number: number,
+          state: '生产'
+        }).get({
+          success: res => {
+            var data = res.data[0];
+            var formSelected = 0;
+            for (var i = 0; i < that.data.form.length; i++) {
+              if (that.data.form[i] == data.form) {
+                formSelected = i;
+              }
+            }
+            that.setData({
+              number: data.number,
+              name: data.name,
+              formSelected: formSelected 
+            })
+          },
+          fail: err => {
+            wx.showToast({
+              icon: 'none',
+              title: '查询失败'
+            })
+          }
+        })
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '扫描失败',
+          duration: 2000
+        })
+      },
+      complete: (res) => {
+      }
     })
   },
 
@@ -106,18 +184,6 @@ Page({
         icon: 'none'
       })
     }
-    if (circularData.weight == "") {
-      wx.showToast({
-        title: '未填写重量',
-        icon: 'none'
-      })
-    }
-    else if (circularData.enterprise == "") {
-      wx.showToast({
-        title: '未填写企业名称',
-        icon: 'none'
-      })
-    }
     else if (circularData.position == "" || circularData.position == ",") {
       wx.showToast({
         title: '未填写位置信息',
@@ -132,24 +198,21 @@ Page({
       db.collection('circulate').add({
         data: circularData,
         success: res => {
-          wx.showToast({
-            title: '上传成功',
-          })
-          that.setData({
-            statusSelected: 0,
-            position: {
-              longitude: '',
-              latitude: ''
-            },
-            form_info: ''
-          })
+          console.log("success");
+          var result = '';
+          console.log(circularData.state);
+          if(circularData.state  == "生产"){
+              result = circularData.number;
+          }
+          else{
+            result = 'success';
+          }
           console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+          wx.navigateTo({url: '/pages/circulate/result/result?result=' + result,})
         },
         fail: err => {
-          wx.showToast({
-            icon: 'none',
-            title: '上传失败'
-          })
+          var result = 'fail'
+          wx.navigateTo({ url: '/pages/circulate/result/result?result=' + result, })
           console.error('[数据库] [新增记录] 失败：', err)
         }
       })

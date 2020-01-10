@@ -21,6 +21,12 @@
   margin-bottom: 30rpx;
 }
 
+#scanView{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .infoItem{
   display: inline-flex;
   width: 100%;
@@ -71,6 +77,11 @@ button:not([size='mini']){
   padding: 10px;
   margin-left: 5%;
   margin-right: 5%;
+}
+
+#scanButton{
+  background-color: white;
+  color: black
 }
 
 .right{

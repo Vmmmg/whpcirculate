@@ -3,6 +3,7 @@
     "pages/circulate/search/search",
     "pages/circulate/detail/detail",
     "pages/circulate/report/report",
+    "pages/circulate/result/result",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
