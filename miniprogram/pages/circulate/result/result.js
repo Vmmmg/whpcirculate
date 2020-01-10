@@ -18,12 +18,12 @@ Page({
       var result = options.result;
       if(result == 'success'){
         this.setData({
-          result: '上传成功！'
+          result: '提交成功！'
         })
       }
       else if(result == 'fail'){
         this.setData({
-          result: '上传失败！'
+          result: '提交失败！'
         })
       }
       else{
