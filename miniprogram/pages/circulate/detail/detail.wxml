@@ -18,9 +18,8 @@
     <view class="itemName" style="width: 65%;">{{item.name}}</view>
   </view>
   <view class="infoItem">
-    <view class="itemName">化学品重量：</view>
-    <view >{{item.weight}}</view>
-    <view style="margin-left: 1em;">kg</view>
+    <view class="itemName">化学品形态：</view>
+    <view >{{item.form}}</view>
   </view>
   <view class="infoItem">
     <view class="itemName">企业名称：</view>

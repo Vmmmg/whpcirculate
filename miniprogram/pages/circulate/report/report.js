@@ -79,7 +79,7 @@ Page({
   getEnterpriseList: function () {
     var that = this;
     const db = wx.cloud.database()
-    db.collection('test').get({
+    db.collection('enterprise').get({
       success: function (res) {
         that.setData({
           enterprise: res.data
