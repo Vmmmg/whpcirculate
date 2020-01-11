@@ -12,13 +12,13 @@
 }
 
 #searchInput{
-  width: 55%;
+  width: 50%;
   border-left: 2rpx solid #333333;
   padding-left: 10rpx; 
 }
 
 #searchButton{
-  width: auto;
+  width: 20%;
   height: auto;
   background-color: #476AF6;
   color: white;
@@ -35,10 +35,14 @@
   height: 80rpx;
   line-height: 80rpx;
   border-radius: 0;
-  font-size: 32rpx;
+  font-size: 25rpx;
 }
 
-.scan{
-  margin: 100rpx;
-  background-color: azure;
+.icon{
+  display:flex; 
+  height: 60rpx;
+  width: 60rpx;
+  justify-content: center; 
+  align-items:center;   
+  margin: 10rpx;
 }

@@ -15,17 +15,24 @@ Page({
   scanCode: function(e){
     wx.scanCode({
       success(res) {
-        var json = JSON.parse(res.result);
-        var number = json.number;
-        console.log(number);
+        console.log(res);
+        // var json = JSON.parse(res.result);
+        // var number = json.number;
+        var number = res.result;
         wx.showToast({
-          title: '扫描成功，正在跳转...',
+          title: '成功，跳转中',
           icon: 'success',
-          duration: 2000
+          duration: 1000,
+          mask: true,
+          success: function(){
+            setTimeout(function(){
+              wx.navigateTo({
+                url: '/pages/circulate/detail/detail?number=' + number,
+              })
+            }, 1000)
+          }
         });
-        wx.navigateTo({
-          url: '/pages/circulate/detail/detail?number=' + number,
-        })
+        
       },
       fail: (res) => {
         wx.showToast({
